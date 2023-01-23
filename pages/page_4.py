@@ -140,7 +140,7 @@ def formattingA (df):
 
 
 
-
+st.title('Room Type Report')
 st.subheader('Please Upload Excel Files')
 fileList = [] # list to append
 uploaded_files = st.file_uploader("Choose a XLSX file",type = 'xlsx', accept_multiple_files=True)
