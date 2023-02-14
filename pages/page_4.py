@@ -95,9 +95,7 @@ def genReport (df,rtColNames):
     #adding total RS
     df.loc['Total_RS'] = df.loc['Total_Capacity']-df.loc['Total_Left']
     
-    #adding portion sold
-    df.loc['Portion_Sold'] = (100*(df.loc['Total_Capacity',[rtNames for rtNames in rtColNames]]/df.loc['Total_Left',[rtNames for rtNames in rtColNames]].sum())).round(1)#added rounding for excel ease
-    
+
     
     #dropping rows that was used in calc as it is no longer needed
     df = df.drop('Total_Left')
@@ -125,10 +123,7 @@ def formattingA (df):
                               cmap='RdPu',
                               subset=(['Room_Type_Occ'],[rtNames for rtNames in rtColNames]),
                               vmin=0, vmax=100) 
-    df.background_gradient(axis=None,
-                              cmap='RdPu',
-                              subset=(['Portion_Sold'],[rtNames for rtNames in rtColNames]),
-                              vmin=0, vmax=100) 
+
     
     df.format('{:,.0f}')
 
